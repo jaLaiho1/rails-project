@@ -26,6 +26,7 @@ RUN bundle update && bundle install
 RUN rails db:migrate RAILS_ENV=production
 
 # Precompile assets by following instructions from README
+RUN ["chmod", "755", "/usr/src/app/bin/yarn"]
 RUN rake assets:precompile 
 
 # And finally the command to run the application
